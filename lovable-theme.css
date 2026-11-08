@@ -1,0 +1,202 @@
+/* ==========================================================================
+   Tema Lovable para Contenido IA (dmd-contenido.vercel.app)
+   --------------------------------------------------------------------------
+   Capa de color Lovable sobre el CSS oficial de DMD (style.css) y Tailwind.
+   Se enlaza DESPUÉS de style.css en index.html, posts.html y publicidad.html,
+   así que sus reglas ganan.
+
+   Paleta Lovable de referencia (dmd-paginas-web-ia):
+   - Fondo crema #f7f4ed, tinta #1c1c1c, texto tenue #5f5f5d
+   - Degradado naranja #ff8a4c / rosa #f0467f / azul #4f7dff
+   - Botones principales negros tipo píldora, tarjetas blancas
+
+   ALCANCE: solo el marco de las páginas (fondo, barra, botones, paneles,
+   títulos). Los diseños generados por los creadores (SVG de posts.js y
+   publicidad.js, con sus colores de plantilla) NO se tocan: el SVG usa
+   atributos fill propios, no estas clases.
+   ========================================================================== */
+
+/* --- Variables del CSS oficial, redefinidas a Lovable --- */
+:root{
+  --bg-primary:#f7f4ed;
+  --bg-secondary:#f1eee6;
+  --text-main:#1c1c1c;
+  --text-body:#1c1c1c;
+  --text-muted:#5f5f5d;
+  --text-light:#8a8781;
+
+  --primary:#1c1c1c;
+  --primary-hover:#000000;
+  --primary-dark:#1c1c1c;
+  --primary-light:#fdeee3;
+  --primary-border:#f3d9c8;
+
+  --accent:#f0467f;
+  --accent-hover:#d63a6e;
+  --accent-light:#fde8ef;
+
+  --lovable:#f0467f;
+  --lovable-hover:#d63a6e;
+  --lovable-light:#fde8ef;
+
+  --card-border:#e9e6dd;
+  --card-border-strong:#ddd8cc;
+
+  --shadow-sm:0 1px 2px 0 rgba(28,28,28,.05);
+  --shadow-md:0 2px 4px 0 rgba(28,28,28,.06);
+  --shadow-lg:0 4px 6px -1px rgba(28,28,28,.07), 0 2px 4px -2px rgba(28,28,28,.05);
+  --shadow-xl:0 10px 15px -3px rgba(28,28,28,.08), 0 4px 6px -4px rgba(28,28,28,.04);
+}
+
+/* --- Fondo crema y tipografía Inter --- */
+html, body{
+  background-color:#f7f4ed !important;
+  color:#1c1c1c;
+  font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+h1, h2, h3, h4, .font-display{
+  font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !important;
+  letter-spacing:-.03em;
+  color:#1c1c1c;
+}
+
+/* Texto con degradado Lovable (ya usado en el hub) */
+.grad-text{
+  background:linear-gradient(90deg,#ff8a4c,#f0467f,#4f7dff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+/* --- Barra superior: crema translúcida con blur, estilo Lovable --- */
+.navbar, .navbar-wrapper{
+  background-color:rgba(247,244,237,.88) !important;
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #e9e6dd !important;
+  box-shadow:0 1px 0 rgba(28,28,28,.04) !important;
+}
+
+/* --- Botones del CSS oficial: negros tipo píldora --- */
+.btn{
+  border-radius:9999px !important;
+}
+.btn-primary{
+  background-color:#1c1c1c !important;
+  border-color:#1c1c1c !important;
+  color:#fcfbf8 !important;
+  border-radius:9999px !important;
+}
+.btn-primary:hover{
+  background-color:#000000 !important;
+  border-color:#000000 !important;
+}
+.btn-secondary{
+  background-color:#ffffff !important;
+  color:#1c1c1c !important;
+  border:1px solid #ddd8cc !important;
+  border-radius:9999px !important;
+}
+
+/* --- Pie: crema, sin banda blanca --- */
+.footer{
+  background-color:#f7f4ed !important;
+  border-top:1px solid #e9e6dd !important;
+}
+.footer-links a:hover{
+  color:#f0467f !important;
+}
+
+/* --- Insignias y etiquetas azules -> tonos melocotón/rosa --- */
+.badge-price, .badge-price-pop{
+  background-color:#fdeee3 !important;
+  color:#9a3412 !important;
+  border-color:#f3d9c8 !important;
+}
+.legal-badge{
+  background:#fdeee3 !important;
+  color:#9a3412 !important;
+  border-radius:9999px !important;
+}
+
+/* --- Modales: tarjetas blancas con borde cálido --- */
+.modal-card, .modal-content{
+  border-color:#e9e6dd !important;
+  border-radius:16px !important;
+  box-shadow:0 25px 50px -12px rgba(28,28,28,.25) !important;
+}
+.modal-close-btn:hover{
+  color:#f0467f !important;
+}
+
+/* --- Tarjetas del hub y paneles: borde cálido --- */
+.card{
+  border-color:#e9e6dd !important;
+}
+
+/* --- Inputs con foco rosa Lovable --- */
+input:focus, select:focus, textarea:focus{
+  border-color:#f0467f !important;
+  outline:none !important;
+  box-shadow:0 0 0 3px rgba(240,70,127,.15) !important;
+}
+
+/* ==========================================================================
+   Overrides de utilidades Tailwind (azul corporativo -> Lovable).
+   Tailwind CDN genera sus reglas en runtime SIN !important, así que estas
+   reglas con !important ganan. Solo se reteñe el marco; el SVG generado
+   usa atributos fill propios y no se ve afectado.
+   ========================================================================== */
+
+/* Botones y fondos azules -> negro tinta (píldora) */
+.bg-blue-600{background-color:#1c1c1c !important; border-radius:9999px !important;}
+.bg-blue-700{background-color:#1c1c1c !important;}
+.hover\:bg-blue-600:hover{background-color:#000000 !important;}
+.hover\:bg-blue-700:hover{background-color:#000000 !important;}
+
+/* Textos azules -> tinta o rosa */
+.text-blue-700{color:#1c1c1c !important;}
+.text-blue-600{color:#f0467f !important;}
+.text-blue-800{color:#1c1c1c !important;}
+.hover\:text-blue-700:hover{color:#1c1c1c !important;}
+
+/* Bordes azules -> tinta o melocotón */
+.border-blue-600{border-color:#1c1c1c !important;}
+.border-blue-200{border-color:#f3d9c8 !important;}
+.border-blue-100{border-color:#fbe9dc !important;}
+.hover\:border-blue-600:hover{border-color:#1c1c1c !important;}
+.hover\:border-blue-400:hover{border-color:#f0467f !important;}
+.focus\:border-blue-600:focus{border-color:#f0467f !important;}
+
+/* Fondos azul claro -> melocotón suave */
+.bg-blue-50{background-color:#fdf1e7 !important;}
+.bg-blue-50\/70{background-color:rgba(253,241,231,.7) !important;}
+.bg-blue-100{background-color:#fbe3d2 !important;}
+.hover\:bg-blue-50:hover{background-color:#fdf1e7 !important;}
+
+/* Grises pizarra -> grises cálidos Lovable */
+.bg-slate-50{background-color:#fbf9f4 !important;}
+.bg-slate-100{background-color:#f1eee6 !important;}
+.bg-slate-900{background-color:#1c1c1c !important;}
+.text-slate-400{color:#8a8781 !important;}
+.text-slate-500{color:#5f5f5d !important;}
+.text-slate-600{color:#55534e !important;}
+.text-slate-700{color:#33312e !important;}
+.text-slate-800{color:#1c1c1c !important;}
+.text-slate-900{color:#1c1c1c !important;}
+.border-slate-100{border-color:#efece4 !important;}
+.border-slate-200{border-color:#e9e6dd !important;}
+.border-slate-300{border-color:#ddd8cc !important;}
+.hover\:bg-slate-50:hover{background-color:#fbf9f4 !important;}
+.hover\:bg-slate-100:hover{background-color:#f1eee6 !important;}
+.hover\:text-slate-700:hover{color:#1c1c1c !important;}
+
+/* Neutros del hub -> grises cálidos */
+.text-neutral-500{color:#5f5f5d !important;}
+.text-neutral-600{color:#55534e !important;}
+.border-neutral-100{border-color:#e9e6dd !important;}
+
+/* Ámbar (botones Premium) -> naranja Lovable */
+.bg-amber-500{background-color:#ff8a4c !important;}
+.text-amber-700{color:#9a3412 !important;}
+.hover\:bg-amber-50:hover{background-color:#fdf1e7 !important;}
